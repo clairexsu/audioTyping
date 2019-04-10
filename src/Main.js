@@ -1,5 +1,6 @@
 import React, { Component } from "react";
- 
+import { Howl, Howler } from 'howler';
+
 class Main extends Component {
   render() {
     return (
@@ -15,12 +16,9 @@ class Main extends Component {
             <button class = "L"> L </button>
             <button class = "colon">:</button>
           </div>
-          <div className="content">
-             
-          </div>
         </div>
     );
   }
-}
+ }
  
 export default Main;
