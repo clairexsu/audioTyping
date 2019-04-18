@@ -2,15 +2,30 @@ import React, { Component } from 'react';
 import './App.css';
 import { Howl } from 'howler';
 import note2 from './assets/note2.mp3'; 
+import note1 from './assets/note1.mp3';
 
 class App extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+           checkStart: false,
+           randomNumber: 0,
+           soundArr: [note1, note2]
+        }
+    }
 
   arrowKeyListener = (e) => {
     let key = e.keyCode ? e.keyCode : e.which;
     var sounda = new Howl({
-      src: note2
+      src: note1
     });
-    switch(key) {
+    if(key == 13) {
+        this.state.checkStart = true;
+    }
+
+    else if (this.state.checkStart) {
+
+        switch(key) {
         case 97:
         case 65:
             sounda.play();
@@ -45,7 +60,10 @@ class App extends Component {
         default:
             console.log(key);
     }
+}
 };
+
+
 
 componentDidMount(){
     document.addEventListener("keydown", this.arrowKeyListener);
