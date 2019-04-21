@@ -3,6 +3,7 @@ import './App.css';
 import { Howl } from 'howler';
 import note2 from './assets/note2.mp3'; 
 import note1 from './assets/note1.mp3';
+import wrong1 from './assets/wrong.mp3'
 
 class App extends Component {
     constructor(props){
@@ -19,12 +20,16 @@ class App extends Component {
     var sounda = new Howl({
       src: note1
     });
+    var soundb = new Howl({
+        src: note2
+    })
+    var wrong = new Howl({
+        src: wrong1
+    })
     if(key == 13) {
         this.state.checkStart = true;
     }
-
     else if (this.state.checkStart) {
-
         switch(key) {
         case 97:
         case 65:
@@ -32,7 +37,7 @@ class App extends Component {
             break;
         case 115:
         case 83:
-            
+            soundb.play();
             break;
         case 100:
         case 68:
@@ -58,12 +63,10 @@ class App extends Component {
             
             break;
         default:
-            console.log(key);
+            wrong.play();
     }
 }
 };
-
-
 
 componentDidMount(){
     document.addEventListener("keydown", this.arrowKeyListener);
