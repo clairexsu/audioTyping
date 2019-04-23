@@ -30,40 +30,42 @@ class App extends Component {
         });
         var soundb = new Howl({
             src: note2
-        })
+        });
         var soundc = new Howl({
             src: note3
-        })
+        });
         var soundd = new Howl({
             src: note4
-        })
+        });
         var sounde = new Howl({
             src: note5
-        })
+        });
         var soundf = new Howl({
             src: note6
-        })
+        });
         var soundg = new Howl({
             src: note7
-        })
+        });
         var soundh = new Howl({
             src: note8
-        })
+        });
         var wrong = new Howl({
             src: wrong1
-        })
+        });
         var correct = new Howl({
             src: right
-        })
+        });
 
         //if enter key is pressed then game can start
         if (key === 13) {
-            this.state.checkStart = true;
+            this.setState({
+                checkStart: true,
+            });
             return;
         }
 
         //after the enter key is pressed, if the B key is pressed, a sound should play on its own depending on the index
-        if (this.state.checkStart && key === 98 || key === 66) {
+        if (this.state.checkStart && key === 98 || key === 66){
             this.randomIndex = Math.floor(Math.random() * 8);
             console.log(this.randomIndex);
             switch (this.randomIndex) {
