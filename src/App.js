@@ -97,7 +97,47 @@ class App extends Component {
                     wrong.play();
             }
             return;
-        }
+        } else if (!this.state.checkStart) {
+            //Play the sound if the user presses a key and hasn't started
+            switch (key) {
+                case 97:      //A or a
+                case 65:
+                    sounda.play();
+                    break;
+                case 115:   //S or s
+                case 83:
+                    soundb.play();
+                    break;
+                case 100:   //D or d
+                case 68:
+                    soundc.play();
+                    break;
+                case 102:   //F or f
+                case 70:
+                    soundd.play();
+                    break;
+                case 106:   //J or j
+                case 74:
+                    sounde.play();
+                    break;
+                case 107:   //K or k
+                case 75:
+                    soundf.play();
+                    break;
+                case 108:   //L or l
+                case 76:
+                    soundg.play();
+                    break;
+                case 59:    //;
+                case 58:
+                    soundh.play();
+                    break;
+                default:
+                    break;
+                }
+
+                return;
+            }
 
         //this switch case assigns a sound to each key (in ascii) provided 
         if (this.state.checkStart) {
