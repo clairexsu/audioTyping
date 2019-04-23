@@ -66,7 +66,7 @@ class App extends Component {
 
         //after the enter key is pressed, if the B key is pressed, a sound should play on its own depending on the index
         if (this.state.checkStart && key === 98 || key === 66){
-            this.randomIndex = Math.floor(Math.random() * 8);
+            this.randomIndex = Math.floor(Math.random() * 9);
             console.log(this.randomIndex);
             switch (this.randomIndex) {
                 case 1:
@@ -128,8 +128,7 @@ class App extends Component {
                 case 76:
                     soundg.play();
                     break;
-                case 59:    //;
-                case 58:
+                case 186:    //;
                     soundh.play();
                     break;
                 default:
@@ -177,8 +176,7 @@ class App extends Component {
                     soundg.play();
                     this.userSound = 7;
                     break;
-                case 59:    //;
-                case 58:
+                case 186:    //;
                     soundh.play();
                     this.userSound = 8;
                     break;
@@ -191,6 +189,8 @@ class App extends Component {
             }
             else {
                 wrong.play();
+                //stop the sounds if they are the wrong key, but if the right key is clicked, then play that sound
+                if(this.userSound !== this.randomIndex){
                 sounda.stop();
                 soundb.stop();
                 soundc.stop();
@@ -199,6 +199,7 @@ class App extends Component {
                 soundf.stop();
                 soundg.stop();
                 soundh.stop();
+               }
             }
         }
     };
